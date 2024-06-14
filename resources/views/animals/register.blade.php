@@ -9,9 +9,10 @@
 <p>Preencha o formulário</p>
 
 <form action="{{ route('animals.store') }}" method="post">
-    <input type="text" name="nome" id="nome" placeholder="Nome">
+    @csrf
+    <input type="text" name="name" id="name" placeholder="Nome">
     <br>
-    <input type="number" name="idade" id="idade" placeholder="Idade">
+    <input type="number" name="age" id="age" placeholder="Idade">
     <br>
     <input type="submit" value="Gravar">
 </form>

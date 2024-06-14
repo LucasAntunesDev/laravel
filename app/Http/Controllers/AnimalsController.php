@@ -14,7 +14,8 @@ class AnimalsController extends Controller
         return view ('animals.register');
     }
 
-    // public function store(){
-        
-    // }
+    public function store(Request $form){
+    #dd($form);
+        echo $form->nome;
+    }
 }
