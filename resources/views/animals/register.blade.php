@@ -6,15 +6,26 @@
 
 @section('conteudo')
 
-<p>Preencha o formulário</p>
+<p class="mx-auto">Preencha o formulário</p>
 
-<form action="{{ route('animals.store') }}" method="post">
+@if ($errors->any())
+<div class="border border-rose-500 w-fit px-4 py-3 rounded-xl mx-auto flex flex-col">
+    <h4>Deu ruim</h4>
+    @foreach ($errors->all() as $erro)
+    <p class="text-rose-500">{{$erro}}</p>
+    @endforeach
+</div>
+@endif
+
+<form action="{{ route('animals.store') }}" method="post" class="mx-auto flex flex-col gap-y-2">
     @csrf
-    <input type="text" name="name" id="name" placeholder="Nome">
+    <input type="text" name="name" id="name" placeholder="Nome" value="{{old('name')}}"
+        class="border border-neutral-900 p-2 rounded-xl w-fit mx-auto">
     <br>
-    <input type="number" name="age" id="age" placeholder="Idade">
+    <input type="number" name="age" id="age" placeholder="Idade" value="{{old('age')}}"
+        class="border border-neutral-900 p-2 rounded-xl w-fit mx-auto">
     <br>
-    <input type="submit" value="Gravar">
+    <input type="submit" value="Gravar" class="bg-emerald-500 hover:bg-emerald-600 rounded-xl p-4 w-fit mx-auto hover:cursor-pointer">
 </form>
 
 @endsection

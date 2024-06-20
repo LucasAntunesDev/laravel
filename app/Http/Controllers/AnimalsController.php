@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class AnimalsController extends Controller
 {
     public function index() {
-        return view('animals.index');
+        $data = Animal::all();
+        return view('animals.index', ['animals' => $data]);
     }
 
     public function register() {
@@ -16,13 +17,17 @@ class AnimalsController extends Controller
     }
 
     public function store(Request $form) {
-        $dados = $form->validate([
+        $data = $form->validate([
             'name' => 'required|min:3',
             'age' => 'required|integer'
         ]);
 
-        // var_dump($dados);
-        Animal::create($dados);
-        echo 'Tudo certo!';
+        Animal::create($data);
+
+        return redirect()->route('animals');
+    }
+
+    public function delete(Animal $animal) {
+        return view('animals.delete', ['animal' => $animal]);
     }
 }
