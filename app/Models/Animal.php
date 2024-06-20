@@ -11,4 +11,12 @@ class Animal extends Model
 
     #Se a tabela estivesse em português
     // protected $table = 'animais';
+    protected $table = 'animals';
+
+    # Campos de dados preenchíveis
+    protected $fillable = [
+        'id',
+        'name',
+        'age'
+    ];
 }
