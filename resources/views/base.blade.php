@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <h1 class="mx-auto">@yield('titulo')</h1>
-    <hr>
+    <h1 class="mx-auto text-violet-500 w-fit text-4xl font-bold my-6">@yield('titulo')</h1>
+    {{-- <hr> --}}
     @yield('conteudo')
 </body>
 
