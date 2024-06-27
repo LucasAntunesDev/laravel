@@ -35,7 +35,7 @@ class AnimalsController extends Controller
         return view('animals.edit', ['animal' => $animal]);
     }
 
-    public function editSore(Request $form, Animal $animal){
+    public function editStore(Request $form, Animal $animal){
         $data = $form->validate([
             'name' => 'required|min:3',
             'age' => 'required|integer'
