@@ -23,6 +23,7 @@
         <td>{{$animal->name}}</td>
         <td>{{$animal->age}}</td>
         <td class="my-4">
+            <a href="{{route('animals.edit', $animal->id)}}" class="inline-flex border-[1px] border-teal-600 text-teal-600 p-2 rounded-xl">Editar</a>
             <a href="{{route('animals.delete', $animal->id)}}" class="inline-flex border-[1px] border-rose-600 text-rose-600 p-2 rounded-xl">Apagar</a>
         </td>
     </tr>

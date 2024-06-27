@@ -13,3 +13,6 @@ Route::post('/animals/register', [AnimalsController::class, 'store'])->name('ani
 
 Route::get('/animals/delete/{animal}', [AnimalsController::class, 'delete'])->name('animals.delete');
 Route::delete('/animals/delete/{animal}', [AnimalsController::class, 'delete']);
+
+Route::get('animals/edit/{animal}', [AnimalsController::class, 'edit'])->name('animals.edit');
+Route::put('animals/edit/{animal}', [AnimalsController::class, 'editStore']);
