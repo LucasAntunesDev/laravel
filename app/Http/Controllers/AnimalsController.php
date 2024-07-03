@@ -27,8 +27,15 @@ class AnimalsController extends Controller
         return redirect()->route('animals');
     }
 
+    # mostra tela de confirmar exclusão
     public function delete(Animal $animal) {
         return view('animals.delete', ['animal' => $animal]);
+    }
+
+    # remove do banco
+    public function remove(Animal $animal){
+        $animal->delete();
+        return redirect()->route('animals');
     }
 
     public function edit(Animal $animal) {

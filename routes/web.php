@@ -12,7 +12,7 @@ Route::get('/animals/register', [AnimalsController::class, 'register'])->name('a
 Route::post('/animals/register', [AnimalsController::class, 'store'])->name('animals.store');
 
 Route::get('/animals/delete/{animal}', [AnimalsController::class, 'delete'])->name('animals.delete');
-Route::delete('/animals/delete/{animal}', [AnimalsController::class, 'delete']);
+Route::delete('/animals/delete/{animal}', [AnimalsController::class, 'remove']);
 
 Route::get('animals/edit/{animal}', [AnimalsController::class, 'edit'])->name('animals.edit');
 Route::put('animals/edit/{animal}', [AnimalsController::class, 'editStore']);
