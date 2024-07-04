@@ -11,8 +11,14 @@
 </head>
 
 <body>
+    <header class="pl-10 py-4 w-screen border-b border-b-neutral-300">
+        <a href="{{route('index')}}" class="text-violet-500 hover:underline mx-auto w-fit">Inicial</a>
+        <span class="mx-3 text-slate-500">|</span>
+        <a href="{{route('animals')}}" class="text-violet-500 hover:underline mx-auto w-fit">Animais</a>
+    </header>
+
     <h1 class="mx-auto text-violet-500 w-fit text-4xl font-bold my-6">@yield('titulo')</h1>
-    {{-- <hr> --}}
+
     @yield('conteudo')
 </body>
 
