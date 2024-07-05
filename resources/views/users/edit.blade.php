@@ -37,26 +37,27 @@
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
 
 
-    <input type="text" name="username" id="username" placeholder="username" value="{{old('username', $user->username ?? '')}}"
+    <input type="text" name="username" id="username" placeholder="username"
+        value="{{old('username', $user->username ?? '')}}"
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
 
-    <input type="text" name="password" id="password" placeholder="password" value="{{old('password', $user->password ?? '')}}"
+    <input type="text" name="password" id="password" placeholder="password"
+        value="{{old('password', $user->password ?? '')}}"
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
-
 
 
     <div class="w-fit mx-auto">
         <h2>É admin?</h2>
         <div>
             <label for="true">Sim</label>
-            <input type="radio" name="admin" id="true" placeholder="admin" value="1"
-                class="w-fit mx-auto text-neutral-600 caret-violet-500" />
+            <input type="radio" name="admin" id="true" placeholder="admin" value="1" {{$user->admin ? 'checked' : ''}}
+            class="w-fit mx-auto text-neutral-600 accent-violet-500" />
         </div>
 
         <div>
             <label for="false">Não</label>
-            <input type="radio" name="admin" id="false" placeholder="admin" value="0"
-                class="w-fit mx-auto text-neutral-600 caret-violet-500" />
+            <input type="radio" name="admin" id="false" placeholder="admin" value="0" {{$user->admin ? '' : 'checked'}}
+            class="w-fit mx-auto text-neutral-600 accent-violet-500" />
         </div>
     </div>
 
