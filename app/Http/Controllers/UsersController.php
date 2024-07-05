@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -24,6 +25,10 @@ class UsersController extends Controller
             'password' => 'required|min:3',
             'admin' => 'required|boolean',
         ]);
+
+        $data['password'] = Hash::make($data['password']);
+
+        // dd($data);
 
         User::create($data);
 

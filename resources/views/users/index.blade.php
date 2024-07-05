@@ -39,7 +39,7 @@
             <td>{{$user->email}}</td>
             <td>{{$user->username}}</td>
             <td>{{$user->password}}</td>
-            <td>{{$user->admin ? 'sim' : 'não'}}</td>
+            <td class="capitalize">{{$user->admin ? 'sim' : 'não'}}</td>
 
             <td class="my-4">
                 <a href="{{route('users.edit', $user->id)}}"
