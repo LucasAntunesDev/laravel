@@ -25,12 +25,12 @@
     </header>
 
     <table class="w-10/12 mx-auto my-4">
-        <tr class="*:border-b *:border-b-gray-200 *:py-2 *:text-start capitalize">
+        <tr class="*:border-b *:border-b-gray-200 *:py-2 *:px-3 *:text-start capitalize">
             <th>Nome</th>
             <th>email</th>
             <th>Usuário</th>
             <th>senha</th>
-            <th>admin?</th>
+            <th colspan="3">admin?</th>
         </tr>
 
         @foreach ($users as $user)
@@ -38,12 +38,12 @@
             <td class="capitalize">{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->username}}</td>
-            <td>{{$user->password}}</td>
+            <td>{{$user->password }}</td>
             <td class="capitalize">{{$user->admin ? 'sim' : 'não'}}</td>
 
             <td class="my-4">
                 <a href="{{route('users.edit', $user->id)}}"
-                    class="inline-flex items-center gap-x-2 border-[1px] border-teal-600 text-teal-600 hover:bg-teal-600 p-2 rounded-xl hover:text-white transition duration-300 ease-in-out cursor-pointer shadow text-sm focus:ring-2 focus:ring-teal-400 mr-10">
+                    class="inline-flex items-center gap-x-2 border-[1px] border-teal-600 text-teal-600 hover:bg-teal-600 p-2 rounded-xl hover:text-white transition duration-300 ease-in-out cursor-pointer shadow text-sm focus:ring-2 focus:ring-teal-400">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
@@ -51,7 +51,9 @@
                             d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                     </svg>
                 </a>
+            </td>
 
+            <td class="my-4">
                 <a href="{{route('users.delete', $user->id)}}"
                     class="inline-flex items-center gap-x-2 border-[1px] border-rose-600 text-rose-600 hover:bg-rose-600 p-2 rounded-xl hover:text-white transition duration-300 ease-in-out cursor-pointer shadow text-sm focus:ring-2 focus:ring-rose-400">
 
