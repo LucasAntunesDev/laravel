@@ -28,8 +28,6 @@ class UsersController extends Controller
 
         $data['password'] = Hash::make($data['password']);
 
-        // dd($data);
-
         User::create($data);
 
         return redirect()->route('users');
@@ -51,7 +49,7 @@ class UsersController extends Controller
     public function editStore(Request $form, User $user) {
         $data = $form->validate([
             'name' => 'required|min:3',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'username' => 'required|min:3',
             'password' => 'required|min:3',
             'admin' => 'required|boolean',
@@ -62,5 +60,17 @@ class UsersController extends Controller
         $user->save();
 
         return redirect()->route('users');
+    }
+
+    public function login(Request $form) {
+        if ($form->isMethod('POST')) {
+            dd($form);
+        }
+
+        return view('users.login');
+    }
+
+    public function logout(Request $form) {
+
     }
 }
