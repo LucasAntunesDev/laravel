@@ -29,17 +29,17 @@
 <form action="{{ route('users.store') }}" method="post" class="mx-auto flex flex-col gap-y-2 *:my-1">
     @csrf
 
-    <input type="text" name="name" id="name" placeholder="name" value="{{old('name')}}"
+    <input type="text" name="name" id="name" placeholder="Nome" value="{{old('name')}}"
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
 
-    <input type="email" name="email" id="email" placeholder="email" value="{{old('email')}}"
+    <input type="email" name="email" id="email" placeholder="Email" value="{{old('email')}}"
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
 
 
-    <input type="text" name="username" id="username" placeholder="username" value="{{old('username')}}"
+    <input type="text" name="username" id="username" placeholder="Usuário" value="{{old('username')}}"
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
 
-    <input type="text" name="password" id="password" placeholder="password" value="{{old('password')}}"
+    <input type="text" name="password" id="password" placeholder="Senha" value="{{old('password')}}"
         class="bg-violet-50 p-2 rounded-xl w-fit mx-auto outline-none focus:ring-2 focus:ring-violet-400 shadow-md shadow-violet-50 placeholder:text-violet-400/70 text-neutral-600" />
 
 

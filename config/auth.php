@@ -62,6 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+            #Define a classe de autenticação
             'model' => App\Models\User::class,
         ],
 
