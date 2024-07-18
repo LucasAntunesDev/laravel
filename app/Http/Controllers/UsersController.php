@@ -72,9 +72,8 @@ class UsersController extends Controller
                 'password' => 'required',
             ]);
 
-            if (Auth::attempt($credentials)) return redirect()->route('index');
+            if (Auth::attempt($credentials)) return redirect()->intended(route('index'));
             else return redirect()->route('login')->with('erro', 'Usuário ou senha inválidos');
-            
 
         }
 

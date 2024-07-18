@@ -20,7 +20,7 @@ Route::prefix('animals')->group(function () {
     Route::put('edit/{animal}', [AnimalsController::class, 'editStore']);
 });
 
-Route::prefix('users')->group(function () {
+Route::prefix('users')->middleware('auth')->group(function () {
     Route::get('', [UsersController::class, 'index'])->name('users');
     Route::get('register', [UsersController::class, 'register'])->name('users.register');
     Route::post('register', [UsersController::class, 'store'])->name('users.store');
