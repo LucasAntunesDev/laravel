@@ -42,7 +42,7 @@
                 </a>
             </td>
 
-            <td class="my-4">
+            <td>
                 <a href="{{route('users.delete', $user->id)}}">
                     Apagar
                 </a>
