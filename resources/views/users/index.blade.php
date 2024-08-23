@@ -24,8 +24,8 @@
             <th>Nome</th>
             <th>email</th>
             <th>Usuário</th>
-            <th>senha</th>
-            <th colspan="3">admin?</th>
+            <th>Admin?</th>
+            <th colspan="2">Ações</th>
         </tr>
 
         @foreach ($users as $user)
@@ -33,8 +33,7 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->username}}</td>
-            <td>{{$user->password }}</td>
-            <td>{{$user->admin ? 'sim' : 'não'}}</td>
+            <td>{{$user->admin ? 'Sim' : 'Não'}}</td>
 
             <td>
                 <a href="{{route('users.edit', $user->id)}}">
