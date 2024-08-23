@@ -26,12 +26,10 @@
 
     <input type="text" name="username" placeholder="Usuário" />
 
-
     <input type="password" name="password" placeholder="Senha" />
 
-
     <button type="submit">
-        Gravar
+        Entrar
     </button>
 
 </form>
