@@ -13,9 +13,9 @@
             <p>Estes são os usuários cadastrados</p>
         </div>
 
-        <a href="{{ route('users.register') }}">
+        <a href="{{ route('users.register') }}" class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded">
+            <i class="fas fa-plus mr-3"></i>
             Cadastrar usuário
-
         </a>
     </header>
 

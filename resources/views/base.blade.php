@@ -32,7 +32,7 @@
             background: #0038fd;
         }
 
-         {
+            {
             background: #1947ee;
         }
 
@@ -168,6 +168,20 @@
                 </h1>
 
                 <div class="flex flex-wrap">
+                    <div class="leading-loose min-w-full mb-2">
+                        @if(session('erro'))
+                        <div class="bg-red-200 border-t-4 border-red-500 rounded-b text-red-800 px-4 py-3 shadow-md" role="alert">
+                            <div class="flex">
+                                <div class="py-1"><i class="fas fa-exclamation-triangle mr-3"></i></div>
+                                <div>
+                                    <p class="font-bold">Erro!</p>
+                                    <p class="text-sm">{{ session('erro') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+
                     <div class="leading-loose">
                         @yield('conteudo')
                     </div>
@@ -177,7 +191,6 @@
 
             <footer class="w-full bg-white text-right p-4">
                 Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
-                <a href="https://www.flaticon.com/free-icons/person" title="person icons">Person icons created by Flat Icons - Flaticon</a>
             </footer>
         </div>
 
