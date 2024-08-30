@@ -1,4 +1,4 @@
-{{-- resources/views/users/index.blade.php --}}
+1{{-- resources/views/users/index.blade.php --}}
 
 @extends('base')
 
@@ -15,42 +15,51 @@
 
         <a href="{{ route('users.register') }}" class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded">
             <i class="fas fa-plus mr-3"></i>
-            Cadastrar usuário
+            Cadastrar
         </a>
     </header>
 
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>email</th>
-            <th>Usuário</th>
-            <th>Admin?</th>
-            <th colspan="2">Ações</th>
-        </tr>
+    <div class="bg-white overflow-auto">
+        <table class="min-w-full bg-white">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Nome</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">email</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Usuário</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Admin?</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm" colspan="2"></th>
+                </tr>
+            </thead>
 
-        @foreach ($users as $user)
-        <tr>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->username}}</td>
-            <td>{{$user->admin ? 'Sim' : 'Não'}}</td>
+            <tbody class="text-gray-700">
+                @foreach ($users as $user)
+                <tr @if($loop->even) class="bg-gray-200" @endif>
+                    <td class="w-1/3 text-left py-3 px-4">{{$user->name}}</td>
+                    <td class="w-1/3 text-left py-3 px-4">{{$user->email}}</td>
+                    <td class="w-1/3 text-left py-3 px-4">{{$user->username}}</td>
+                    <td class="w-1/3 text-left py-3 px-4">{{$user->admin ? 'Sim' : 'Não'}}</td>
 
-            <td>
-                <a href="{{route('users.edit', $user->id)}}">
-                    Editar
-                </a>
-            </td>
+                    <td class="w-1/3 text-left py-3 px-4">
+                        <a href="{{route('users.edit', $user->id)}}" class="inline-flex bg-green-500 py-1 px-4 rounded-full text-white items-center gap-x-2 hover:bg-green-700">
+                            <i class="fas fa-pen"></i>
+                            Editar
+                        </a>
+                    </td>
 
-            <td>
-                <a href="{{route('users.delete', $user->id)}}">
-                    Apagar
-                </a>
-            </td>
+                    <td class="w-1/3 text-left py-3 px-4" >
+                        <a href="{{route('users.delete', $user->id)}}" class="inline-flex bg-red-500 py-1 px-4 rounded-full text-white items-center gap-x-2 hover:bg-red-700">
+                            <i class="fas fa-trash"></i>
+                            Apagar
+                        </a>
+                    </td>
 
-        </tr>
-        @endforeach
+                </tr>
+                @endforeach
+            </tbody>
 
-    </table>
+        </table>
+    </div>
+
 </main>
 
 @endsection
