@@ -28,16 +28,22 @@
 @endif
 
 <div class="leading-loose">
-    <form action="{{ route('animals.store') }}" method="post" class="p-10 bg-white rounded shadow-xl">
+
+    <form action="{{ route('animals.store') }}" method="post" class="p-10 bg-white rounded shadow-xl" enctype="multipart/form-data">
         @csrf
         <div>
             <label class="block text-sm text-gray-600" for="name">Nome</label>
-            <input type="text" name="name" id="name" placeholder="Nome" value="{{old('name')}}" class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
+            <input type="text" name="name" id="name" placeholder="Nome" value="{{old('name')}}" class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" required>
         </div>
 
         <div class="mt-2">
             <label class="block text-sm text-gray-600" for="age">Idade</label>
-            <input type="number" name="age" id="age" placeholder="Idade" value="{{old('age')}}" min="0" class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
+            <input type="number" name="age" id="age" placeholder="Idade" value="{{old('age')}}" min="0" class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" required>
+        </div>
+
+        <div class="mt-2">
+            <label class="block text-sm text-gray-600" for="image">Imagem</label>
+            <input type="file" name="image" id="image" placeholder="Imagem" value="{{old('image')}}" min="0" class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
         </div>
 
         <div class="mt-6">
@@ -47,6 +53,7 @@
             </button>
         </div>
     </form>
+    
 </div>
 
 @endsection

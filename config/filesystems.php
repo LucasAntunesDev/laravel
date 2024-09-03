@@ -44,6 +44,14 @@ return [
             'throw' => false,
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('images'),
+            'url' => env('APP_URL').'/img',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -69,8 +77,15 @@ return [
     |
     */
 
+    //não vamos colocar realmente arquivos dentro de public, mas apenas seus caminhos
+    //facilita pra versionamento
+    //o usuário não tem realmente acesso a pasta public
+
+    #a pasta storage em public é 'virtual', sendo a real /storage que está em root
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        //img é o link simbólico da pasta images, que, por si só, está esm root/storage
+        public_path('img') => storage_path('images'),
     ],
 
 ];

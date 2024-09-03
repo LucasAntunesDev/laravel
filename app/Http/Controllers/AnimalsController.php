@@ -17,11 +17,13 @@ class AnimalsController extends Controller
     }
 
     public function store(Request $form) {
+        dd($form);
+        
         $data = $form->validate([
             'name' => 'required|min:3',
             'age' => 'required|integer'
         ]);
-
+        
         Animal::create($data);
 
         return redirect()->route('animals');
