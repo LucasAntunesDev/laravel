@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Animal;
 use Illuminate\Http\Request;
 
-class AnimalsController extends Controller
-{
+class AnimalsController extends Controller {
     public function index() {
         $data = Animal::all();
         return view('animals.index', ['animals' => $data]);
@@ -17,13 +16,18 @@ class AnimalsController extends Controller
     }
 
     public function store(Request $form) {
-        dd($form);
-        
+        // dd($form);
+
+        $img = $form->file('image')->store('animals', 'images');
+
         $data = $form->validate([
             'name' => 'required|min:3',
-            'age' => 'required|integer'
+            'age' => 'required|integer',
+            'image' => 'required'
         ]);
-        
+
+        $data['image'] = $img;
+
         Animal::create($data);
 
         return redirect()->route('animals');
@@ -35,7 +39,7 @@ class AnimalsController extends Controller
     }
 
     # remove do banco
-    public function remove(Animal $animal){
+    public function remove(Animal $animal) {
         $animal->delete();
         return redirect()->route('animals');
     }
@@ -44,7 +48,7 @@ class AnimalsController extends Controller
         return view('animals.edit', ['animal' => $animal]);
     }
 
-    public function editStore(Request $form, Animal $animal){
+    public function editStore(Request $form, Animal $animal) {
         $data = $form->validate([
             'name' => 'required|min:3',
             'age' => 'required|integer'
