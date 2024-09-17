@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Animal extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
-    #Se a tabela estivesse em português
-    // protected $table = 'animais';
     protected $table = 'animals';
 
-    # Campos de dados preenchíveis
     protected $fillable = [
         'id',
         'name',

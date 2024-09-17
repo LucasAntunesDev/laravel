@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class AnimalsController extends Controller {
     public function index() {
         $data = Animal::all();
+
         return view('animals.index', ['animals' => $data]);
     }
 
@@ -16,8 +17,6 @@ class AnimalsController extends Controller {
     }
 
     public function store(Request $form) {
-        // dd($form);
-
         $img = $form->file('image')->store('animals', 'images');
 
         $data = $form->validate([
