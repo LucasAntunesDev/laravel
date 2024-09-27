@@ -32,7 +32,8 @@
             <tbody class="text-gray-700">
                 @foreach ($animals as $animal)
                 <tr @if($loop->even) class="bg-gray-200" @endif>
-                    <td class="w-1/3 text-left py-3 px-4">{{$animal->name}}</td>
+                    <td class="w-1/3 text-left py-3 px-4">
+                        <a href="{{route('animals.show', $animal->id)}}"> {{$animal->name}}</a></td>
                     <td class="w-1/3 text-left py-3 px-4">{{$animal->age}}</td>
 
                     <td class="w-1/3 text-left py-3 px-4">
@@ -42,7 +43,7 @@
                         </a>
                     </td>
 
-                    <td class="w-1/3 text-left py-3 px-4" >
+                    <td class="w-1/3 text-left py-3 px-4">
                         <a href="{{route('animals.delete', $animal->id)}}" class="inline-flex bg-red-500 py-1 px-4 rounded-full text-white items-center gap-x-2 hover:bg-red-700">
                             <i class="fas fa-trash"></i>
                             Apagar

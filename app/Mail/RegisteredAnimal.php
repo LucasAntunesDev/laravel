@@ -2,31 +2,30 @@
 
 namespace App\Mail;
 
+use App\Models\Animal;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RegisteredAnimal extends Mailable
-{
+class RegisteredAnimal extends Mailable {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
+    public function __construct(public Animal $animal) {
         //
     }
 
     /**
      * Get the message envelope.
      */
-    public function envelope(): Envelope
-    {
+    public function envelope(): Envelope {
         return new Envelope(
             from: new Address('admin@batata.com', 'App dos Animais'),
             subject: '[🐾 App dos Animais] Novo Animal Cadastrado',
@@ -36,8 +35,7 @@ class RegisteredAnimal extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
-    {
+    public function content(): Content {
         return new Content(
             view: 'emails.registeredanimal',
         );
@@ -48,8 +46,9 @@ class RegisteredAnimal extends Mailable
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    public function attachments(): array
-    {
-        return [];
+    public function attachments(): array {
+        return [
+            // Attachment::fromStorage('exemplo.pdf'),
+        ];
     }
 }

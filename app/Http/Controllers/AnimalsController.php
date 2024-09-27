@@ -14,24 +14,28 @@ class AnimalsController extends Controller {
         return view('animals.index', ['animals' => $data]);
     }
 
+    public function show(Animal $animal) {
+        return view('animals.show', ['animal' => $animal]);
+    }
+
     public function register() {
         return view('animals.register');
     }
 
     public function store(Request $form) {
-        // $img = $form->file('image')->store('animals', 'images');
+        $img = $form->file('image')->store('animals', 'images');
 
         $data = $form->validate([
             'name' => 'required|min:3',
             'age' => 'required|integer',
         ]);
 
-        // $data['image'] = $img;
+        $data['image'] = $img;
+        $animal = Animal::create($data);
 
-        // Animal::create($data);
-        Mail::to('alguem@batata.com')->send(new RegisteredAnimal);
-        return;
-        // return redirect()->route('animals');
+        Animal::create($data);
+        Mail::to('alguem@batata.com')->send(new RegisteredAnimal($animal));
+        return redirect()->route('animals');
     }
 
     # mostra tela de confirmar exclusão

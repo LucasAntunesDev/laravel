@@ -18,6 +18,8 @@ Route::prefix('animals')->group(function () {
 
     Route::get('edit/{animal}', [AnimalsController::class, 'edit'])->name('animals.edit');
     Route::put('edit/{animal}', [AnimalsController::class, 'editStore']);
+
+    Route::get('animals/show/{animal}', [AnimalsController::class, 'show'])->name('animals.show');
 });
 
 Route::prefix('users')->middleware('auth')->group(function () {
